@@ -1,6 +1,7 @@
 package sky.employee.tests.model;
 import java.util.Objects;
 import org.apache.commons.lang3.StringUtils;
+import sky.employee.tests.exception.EmployeeBadNameException;
 
 public class Employee {
     private final String firstName;
@@ -11,7 +12,7 @@ public class Employee {
     public Employee(String firstName, String lastName, int departmentId, long salary) {
 
         if(!StringUtils.isAlpha(firstName) || !StringUtils.isAlpha(lastName)) {
-            throw new EmployeeBadNameException();
+            throw new EmployeeBadNameException("Employee bad name");
         }
 
         this.firstName = StringUtils.capitalize(firstName.toLowerCase());
@@ -55,4 +56,15 @@ public class Employee {
     public void setSalary(long salary) {
         this.salary = salary;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", departmentId=" + departmentId +
+                ", salary=" + salary +
+                '}';
+    }
 }
+
