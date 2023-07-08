@@ -9,10 +9,10 @@ import java.util.Optional;
 
 public interface DepartmentService {
 
-    Optional<List<Employee>> listOfDepartment(int departmentId);
-    Optional<Employee> minSalary(int departmentId);
-    Optional<Employee> maxSalary(int departmentId);
+    List<Employee> listOfDepartment(int departmentId);
+    long minSalary(int departmentId);
+    long maxSalary(int departmentId);
 
     long sumSalary(int departmentId);
-    Optional<Map<Integer,List<Employee>>> listByDepartments();
+    Map<Integer,List<Employee>> listByDepartments();
 }

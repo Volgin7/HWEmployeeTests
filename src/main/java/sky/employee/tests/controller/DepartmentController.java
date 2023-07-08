@@ -20,19 +20,19 @@ public class DepartmentController {
     }
     @GetMapping("/{departmentId}/employees")
     @ResponseBody
-    public Optional<List<Employee>> listOdDepartment(@PathVariable int departmentId)
+    public List<Employee> listOdDepartment(@PathVariable int departmentId)
     {
         return deptService.listOfDepartment(departmentId);
     }
 
     @GetMapping("/{departmentId}/salary/min")
-    public Optional<Employee> minSalary(@PathVariable int departmentId)
+    public long minSalary(@PathVariable int departmentId)
     {
         return deptService.minSalary(departmentId);
     }
 
     @GetMapping("/{departmentId}/salary/max")
-    public Optional<Employee> maxSalary(@PathVariable int departmentId)
+    public long maxSalary(@PathVariable int departmentId)
     {
         return deptService.maxSalary(departmentId);
     }
@@ -43,7 +43,7 @@ public class DepartmentController {
         return deptService.sumSalary(departmentId);
     }
     @GetMapping("/employees")
-    public Optional<Map<Integer,List<Employee>>> listByDepartments()
+    public Map<Integer,List<Employee>> listByDepartments()
     {
         return deptService.listByDepartments();
     }
